@@ -56,7 +56,7 @@ namespace WpfAllatkereskedes
 
         public override string? ToString()
         {
-            return $"{Species} - {Name}; ({Price}$)";
+            return Name != null ? $"{Species} - {Name}; ({Price}$)" : "";
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

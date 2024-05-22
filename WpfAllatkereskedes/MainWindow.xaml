@@ -35,7 +35,20 @@
                    Background="Green"
                    />
 
-            <ListBox Margin="25,0,0,0" Grid.Row="1"/>
+            <ListBox x:Name="lbAllatok" IsSynchronizedWithCurrentItem="True" Margin="25,0,0,0" Grid.Row="1" FontSize="20">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="red" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <Button Content="+"/>
+                                <Button Content="-"/>
+
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>                
+            </ListBox>
 
             <StackPanel
                 Grid.Row="1"
@@ -59,22 +72,23 @@
 
             </StackPanel>    
         <StackPanel
+            x:Name="spInput"
             Margin="0,0,25,0"
                 Grid.Row="1"
                 Grid.Column="2"
                 VerticalAlignment="Center"
                 >
-                <TextBox Text="Name : " 
+                <TextBox Text="{Binding Name}" 
                            HorizontalAlignment="Stretch"
                            FontSize="22"
                            Padding="0,10"
-                           Foreground="DarkGreen"/> 
-                <TextBox Text="Species : " 
+                           Foreground="DarkGreen"/>
+                <TextBox Text="{Binding Species}" 
                            HorizontalAlignment="Stretch"
                            FontSize="22"
                            Padding="0,10"
                            Foreground="DarkGreen"/>  
-            <TextBox Text="Prince : " 
+            <TextBox Text="{ Binding Price}" 
                            HorizontalAlignment="Stretch"
                            FontSize="22"
                            Padding="0,10"
@@ -84,10 +98,10 @@
         
         <StackPanel  Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Button Content="Add" Width="150" FontSize="20" Margin="20"/>
-            <Button Content="Update" Width="150" FontSize="20" Margin="20"/>
-            <Button Content="Delete" Width="150" FontSize="20" Margin="20"/>
-            <Button Content="Close" Width="150" FontSize="20" Margin="20"/>
+            <Button x:Name="Add" Click="Add_Click"  Content="Add" Width="150" FontSize="20" Margin="20"/>
+            <Button x:Name="Update" Click="Update_Click" Content="Update" Width="150" FontSize="20" Margin="20"/>
+            <Button x:Name="Delete" Click="Delete_Click" Content="Delete" Width="150" FontSize="20" Margin="20"/>
+            <Button x:Name="CloseButton" Click="CloseButton_Click" Content="Close" Width="150" FontSize="20" Margin="20"/>
         </StackPanel>
 
 
